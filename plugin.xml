@@ -11,6 +11,11 @@
         <engine name="cordova" version=">=3.0.0"/>
     </engines>
 	<platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="TRTC">
+                <param name="android-package" value="com.helpfooter.trtc.TRTC"/>
+            </feature>
+        </config-file>
 		<config-file target="AndroidManifest.xml" parent="/manifest">
 			<uses-permission android:name="android.permission.INTERNET" />
 			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
