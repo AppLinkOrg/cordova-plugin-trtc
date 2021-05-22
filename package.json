@@ -1,31 +1,38 @@
 {
-    "name": "cordova-plugin-trtc",
-    "version": "1.0.0",
-    "description": "Cordova Plugin for QCloud TRTC",
-    "cordova": {
-      "id": "cordova-plugin-trtc",
-      "platforms": [
-        "android"
-      ]
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/AppLinkOrg/cordova-plugin-trtc.git"
-    },
-    "keywords": [
-      "cordova",
-      "trtc",
-      "webrtc",
-      "videocall",
-      "qcloud",
-      "tencent",
-      "ecosystem:cordova",
-      "cordova-android"
-    ],
-    "author": "Steve.cai",
-    "license": "MIT",
-    "bugs": {
-      "url": "https://github.com/AppLinkOrg/cordova-plugin-trtc/issues"
-    },
-    "homepage": "https://github.com/AppLinkOrg/cordova-plugin-trtc#readme"
-  }
+  "name": "cordova-plugin-trtc",
+  "version": "1.0.0",
+  "description": "Cordova Plugin for QCloud TRTC",
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-trtc",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AppLinkOrg/cordova-plugin-trtc.git"
+  },
+  "keywords": [
+    "cordova",
+    "trtc",
+    "webrtc",
+    "videocall",
+    "qcloud",
+    "tencent",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "Steve.cai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AppLinkOrg/cordova-plugin-trtc/issues"
+  },
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "homepage": "https://github.com/AppLinkOrg/cordova-plugin-trtc#readme"
+}

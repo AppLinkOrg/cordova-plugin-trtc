@@ -7,6 +7,9 @@
 	<js-module src="www/trtc.js" name="TRTC">
 		<clobbers target="TRTC" />
 	</js-module>
+    <engines>
+        <engine name="cordova" version=">=3.0.0"/>
+    </engines>
 	<platform name="android">
 		<config-file target="AndroidManifest.xml" parent="/manifest">
 			<uses-permission android:name="android.permission.INTERNET" />
@@ -22,8 +25,9 @@
 			<uses-feature android:name="android.hardware.camera" />
 			<uses-feature android:name="android.hardware.camera.autofocus" />
 		</config-file>
-        <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
 		<framework src="com.tencent.liteav:LiteAVSDK_TRTC:latest.release" />
 		<source-file src="src/android/com/helpfooter/trtc/TRTC.java" target-dir="src/com/helpfooter/trtc/" />
+		<source-file src="src/android/com/helpfooter/trtc/TRTCService.java" target-dir="src/com/helpfooter/trtc/" />
+		<source-file src="src/android/com/helpfooter/trtc/VideoRoomActivity.java" target-dir="src/com/helpfooter/trtc/" />
 	</platform>
 </plugin>

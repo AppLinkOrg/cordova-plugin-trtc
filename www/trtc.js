@@ -1,13 +1,16 @@
 var exec = require('cordova/exec');
 var TRTC = {};
 
-TRTC.start = function(uri, success, failure) {
+TRTC.enterRoom = function (sdkAppId, userId, userSig, roomId, success, failure) {
     // fire
     exec(
         success,
         failure,
-        'VideoStream',
-        'streamRTSP',
-        [uri]
+        'TRTC',
+        'enterRoom',
+        [sdkAppId, userId, userSig, roomId]
     );
 };
+
+
+module.exports = TRTC;
