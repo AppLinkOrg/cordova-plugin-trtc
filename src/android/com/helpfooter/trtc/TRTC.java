@@ -1,5 +1,6 @@
 package com.helpfooter.trtc;
 
+import android.app.Activity;
 import android.content.Context;
 
 import com.tencent.trtc.TRTCCloud;
@@ -14,25 +15,30 @@ import org.json.JSONException;
 
 public class TRTC extends CordovaPlugin {
 
+    Activity mActivity;
+
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if ("enterRoom".equals(action)) {
-            int sdkappid= args.getInt(0);
+            int sdkappid = args.getInt(0);
             String UserId = args.getString(1);
             String UserSig = args.getString(2);
             int RoomId = args.getInt(3);
+            String RemoteUser = args.getString(4);
 
-            Context context=this.cordova.getActivity().getApplicationContext();
+            Context context = this.cordova.getActivity().getApplicationContext();
+            mActivity = this.cordova.getActivity();
 
-            TRTCService trtcService=new TRTCService(context,sdkappid);
-            trtcService.enterRoom(UserId,UserSig,RoomId);
+            TRTCService trtcService = new TRTCService(context, callbackContext, mActivity, sdkappid);
+            trtcService.exitRoom();
+            trtcService.enterRoom(UserId, UserSig, RoomId,RemoteUser);
         }
         return true;
     }
 
     @Override
     public void onRequestPermissionResult(int requestCode, String[] permissions, int[] grantResults) throws JSONException {
-        
+
     }
 
     @Override

@@ -16,6 +16,9 @@
                 <param name="android-package" value="com.helpfooter.trtc.TRTC"/>
             </feature>
         </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name="com.helpfooter.trtc.TRTC.VideoRoomActivity" android:screenOrientation="portrait"/>
+        </config-file>
 		<config-file target="AndroidManifest.xml" parent="/manifest">
 			<uses-permission android:name="android.permission.INTERNET" />
 			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -34,5 +37,12 @@
 		<source-file src="src/android/com/helpfooter/trtc/TRTC.java" target-dir="src/com/helpfooter/trtc/" />
 		<source-file src="src/android/com/helpfooter/trtc/TRTCService.java" target-dir="src/com/helpfooter/trtc/" />
 		<source-file src="src/android/com/helpfooter/trtc/VideoRoomActivity.java" target-dir="src/com/helpfooter/trtc/" />
+		<resource-file src="src/android/res/layout/trtc_videocall_main.xml" target="res/layout/trtc_videocall_main.xml" />
+		<resource-file src="src/android/res/mipmap-xxhdpi/trtc_camerachange.png" target="res/mipmap-xxhdpi/trtc_camerachange.png" />
+		<resource-file src="src/android/res/mipmap-xxhdpi/trtc_exit.png" target="res/mipmap-xxhdpi/trtc_exit.png" />
+		<resource-file src="src/android/res/mipmap-xxhdpi/trtc_videoon.png" target="res/mipmap-xxhdpi/trtc_videoon.png" />
+		<resource-file src="src/android/res/mipmap-xxhdpi/trtc_videooff.png" target="res/mipmap-xxhdpi/trtc_videooff.png" />
+		<resource-file src="src/android/res/mipmap-xxhdpi/trtc_voiceoff.png" target="res/mipmap-xxhdpi/trtc_voiceoff.png" />
+		<resource-file src="src/android/res/mipmap-xxhdpi/trtc_voiceon.png" target="res/mipmap-xxhdpi/trtc_voiceon.png" />
 	</platform>
 </plugin>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <SurfaceView
+        android:id="@+id/remote_surfaceView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center" />
+
+    <SurfaceView
+        android:id="@+id/local_surfaceView"
+        android:layout_width="100dp"
+        android:layout_height="160dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="30dp"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+        android:layout_margin="30dp"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/changecamera"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/trtc_camerachange"
+            android:scaleType="fitXY"
+            android:layout_width="30dp"
+            android:layout_height="30dp"></ImageView>
+        <ImageView
+            android:id="@+id/voicechange"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/trtc_voiceoff"
+            android:scaleType="fitXY"
+            android:layout_width="30dp"
+            android:layout_height="30dp"></ImageView>
+        <ImageView
+            android:id="@+id/videochange"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/trtc_videooff"
+            android:scaleType="fitXY"
+            android:layout_width="30dp"
+            android:layout_height="30dp"></ImageView>
+        <ImageView
+            android:id="@+id/exit"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/trtc_exit"
+            android:scaleType="fitXY"
+            android:layout_width="30dp"
+            android:layout_height="30dp"></ImageView>
+    </LinearLayout>
+
+</RelativeLayout>
