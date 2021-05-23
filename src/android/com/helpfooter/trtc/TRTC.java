@@ -21,10 +21,10 @@ public class TRTC extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if ("enterRoom".equals(action)) {
             int sdkappid = args.getInt(0);
-            String UserId = args.getString(1);
-            String UserSig = args.getString(2);
+            String UserId = args.getString(1).trim();
+            String UserSig = args.getString(2).trim();
             int RoomId = args.getInt(3);
-            String RemoteUser = args.getString(4);
+            String RemoteUser = args.getString(4).trim();
 
             Context context = this.cordova.getActivity().getApplicationContext();
             mActivity = this.cordova.getActivity();

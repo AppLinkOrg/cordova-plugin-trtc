@@ -37,7 +37,12 @@ public class TRTCService {
         this.callbackContext=callbackContext;
         this.sdkappid=sdkappid;
         this.mActivity=mActivity;
-        this.mTRTCCloud = TRTCCloud.sharedInstance(ctx);
+        if(TRTCService.sTRTCCloud!=null){
+            this.mTRTCCloud = TRTCService.sTRTCCloud;
+        }else{
+            this.mTRTCCloud = TRTCCloud.sharedInstance(ctx);
+        }
+
 
         this.mTRTCCloud.setListener(new TRTCCloudListener(){
 
@@ -105,7 +110,7 @@ public class TRTCService {
 
             @Override
             public void onUserVideoAvailable(String userId, boolean available) {
-                Log.d("TRTCService onUserVideo","["+String.valueOf(userId)+"]" );
+                Log.d("TRTCService onUserVideo","["+String.valueOf(userId)+"]:"+(available?"ava":"unava") );
 
                 JSONObject jresult=new JSONObject();
                 try {
@@ -120,6 +125,7 @@ public class TRTCService {
                 //
                 if (available) {
 
+                    VideoRoomActivity.RoomActivity.StartRemoteView(userId);
                     PluginResult errResult=new PluginResult(PluginResult.Status.OK, jresult);
                     errResult.setKeepCallback(true);
                     callbackContext.sendPluginResult(errResult);
@@ -127,6 +133,8 @@ public class TRTCService {
 
                 } else {
 
+
+                    VideoRoomActivity.RoomActivity.StopRemoteView(userId);
                     PluginResult errResult=new PluginResult(PluginResult.Status.OK, jresult);
                     errResult.setKeepCallback(true);
                     callbackContext.sendPluginResult(errResult);

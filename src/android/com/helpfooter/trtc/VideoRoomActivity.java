@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.ImageButton;
@@ -33,6 +34,7 @@ public class VideoRoomActivity extends CordovaActivity {
     ImageView mCameraChange,mVoiceChange,mVideoChange,mExit;
 
     public static VideoRoomActivity RoomActivity;
+    public String remoteUserId="";
 
     public VideoRoomActivity() {
 
@@ -53,9 +55,7 @@ public class VideoRoomActivity extends CordovaActivity {
         TRTCService.sTRTCCloud.startLocalAudio();
 
         Intent intent = getIntent();
-        String remoteUserId = intent.getStringExtra("remoteuser");
-        TRTCService.sTRTCCloud.startRemoteView(remoteUserId, mRemoteView);
-        TRTCService.sTRTCCloud.setRemoteViewFillMode(remoteUserId, TRTC_VIDEO_RENDER_MODE_FILL);
+        remoteUserId = intent.getStringExtra("remoteuser");
 
         mCameraChange.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,6 +127,21 @@ public class VideoRoomActivity extends CordovaActivity {
         mVideoChange=findViewById(_getResource("videochange", "id"));
         mExit=findViewById(_getResource("exit", "id"));
 
+    }
+
+    public void StartRemoteView(String UserId){
+        if(UserId.equals(remoteUserId)){
+            Log.d("TRTCService StartRemote","start for "+UserId );
+            TRTCService.sTRTCCloud.setRemoteViewFillMode(remoteUserId, TRTC_VIDEO_RENDER_MODE_FILL);
+            TRTCService.sTRTCCloud.startRemoteView(remoteUserId, mRemoteView);
+        }
+    }
+
+    public void StopRemoteView(String UserId){
+        if(UserId.equals(remoteUserId)){
+            Log.d("TRTCService StopRemote","stop for "+UserId );
+            TRTCService.sTRTCCloud.stopRemoteView(remoteUserId);
+        }
     }
 
 }
